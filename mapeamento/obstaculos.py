@@ -86,7 +86,7 @@ def desenhar_grafo(G, caminhos=None, obstaculos=None):
         for caminho in caminhos.values():
             if caminho:
                 caminho_edges = list(zip(caminho[:-1], caminho[1:]))
-                nx.draw_networkx_edges(G, pos, edgelist=caminho_edges, edge_color='r', width=2)
+                nx.draw_networkx_edges(G, pos, edgelist=caminho_edges, edge_color='b', width=2)
     
     if obstaculos:
         obs_x, obs_y = zip(*obstaculos)
@@ -94,19 +94,19 @@ def desenhar_grafo(G, caminhos=None, obstaculos=None):
 
     plt.show()
 
-tamanho_matriz = 25
+tamanho_matriz = 15
 
 # Definir obstáculos como uma lista de coordenadas
-obstaculos = [(7, 7), (8, 7), (9, 7), (7, 8), (8, 8), (9, 8)]  # Exemplo de obstáculos
+obstaculos = [(3, 2), (4, 2), (5, 5)]  # Exemplo de obstáculos
 
 # Criar o grafo com obstáculos
 G = criar_grafo_a_partir_da_matriz_com_obstaculos(tamanho_matriz, obstaculos)
 
 # Definir múltiplos objetivos e seus pontos de início associados
 pontos_iniciais = {
-    (24, 0): (0, 24),
-    (0, 24): (0, 0),
-    (0, 0): (24, 24)
+    (8 , 1): (1, 8),
+    (1, 8): (1, 1),
+    (1, 1): (8, 8)
 }
 
 objetivos = list(pontos_iniciais.keys())
